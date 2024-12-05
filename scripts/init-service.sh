@@ -70,7 +70,7 @@ if ! gcloud builds triggers describe $1 --region=$REGION --project=$PROJECT_ID >
     --description="Trigger for $1" \
     --name="$1" \
     --region=$REGION \
-    --service-account="projects/$PROJECT_ID/serviceAccounts/cloudbuild@$PROJECT_ID.iam.gserviceaccount.com" \
+    --service-account="projects/$PROJECT_ID/serviceAccounts/cloudbuild-sa@$PROJECT_ID.iam.gserviceaccount.com" \
     --branch-pattern="^main$" \
     --build-config="cloudbuild.yaml" \
     --repository="projects/$PROJECT_ID/locations/$REGION/connections/ai4screen/repositories/$1/" \

@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
+import burshCursor from '../../../public/cursor_brush.png'
 import { ReactSketchCanvas, ReactSketchCanvasRef } from 'react-sketch-canvas'
 
 const maxWidth = 350
@@ -128,31 +129,39 @@ export default function MaskCanvas({
             position: 'relative',
           }}
         >
-          {!maskImage && (
-            <ReactSketchCanvas
-              ref={canvasRef}
-              strokeWidth={brushSize}
-              eraserWidth={brushSize}
-              strokeColor="rgba(174, 203, 250, 0.5)"
-              canvasColor="transparent"
-              readOnly={readOnlyCanvas}
-              onChange={checkIfCanvasIsEmpty}
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
-            />
-          )}
-          {maskPreview && !isMaskPreview && (
+          <div
+            style={{
+              cursor: 'url(cursor_brush.png) 0 24, auto',
+              zIndex: 1000,
+              backgroundColor: 'red',
+            }}
+          >
+            {!maskImage && (
+              <ReactSketchCanvas
+                ref={canvasRef}
+                strokeWidth={brushSize}
+                eraserWidth={brushSize}
+                strokeColor="rgba(174, 203, 250, 0.5)"
+                canvasColor="transparent"
+                readOnly={readOnlyCanvas}
+                onChange={checkIfCanvasIsEmpty}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
+              />
+            )}
+            {maskPreview && !isMaskPreview && (
+              <img
+                src={maskPreview ? maskPreview : ''}
+                onError={(e) => console.error('Mask preview loading error:', e)}
+                alt="mask image"
+                style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 1 }}
+              />
+            )}
             <img
-              src={maskPreview ? maskPreview : ''}
-              onError={(e) => console.error('Mask preview loading error:', e)}
-              alt="mask image"
-              style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 1 }}
+              src={imagePreview}
+              alt="preview image"
+              style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 0 }}
             />
-          )}
-          <img
-            src={imagePreview}
-            alt="preview image"
-            style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 0 }}
-          />
+          </div>
         </Box>
       )}
     </Box>

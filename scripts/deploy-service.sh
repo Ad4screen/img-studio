@@ -21,7 +21,9 @@ gcloud run deploy $1 \
   --max-instances=$MAX_INSTANCE \
   --memory=$MEMORY \
   --cpu=$CPU \
-  --service-account=$SERVICE_ACCOUNT_EMAIL
+  --service-account=$SERVICE_ACCOUNT_EMAIL \
+  --port=3000 \
+  --ingress=internal-and-cloud-load-balancing
 
 gcloud run services update-traffic $1 --to-latest --region=$REGION --project=$PROJECT_ID
 

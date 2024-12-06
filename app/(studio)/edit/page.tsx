@@ -10,8 +10,7 @@ import { useAppContext } from '../../context/app-context'
 import { Typography } from '@mui/material'
 
 import theme from '../../theme'
-import EditForm from '../../ui/edit-components/EditForm'
-// import EditForm from '@/app/ui/edit-components/EditForm'
+import EditForm from '@/app/ui/edit-components/EditForm'
 import { redirect } from 'next/navigation'
 const { palette } = theme
 

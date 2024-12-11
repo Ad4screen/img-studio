@@ -105,7 +105,7 @@ export const GenerateImageFormFields = {
   personGeneration: {
     label: 'People generation',
     type: 'select',
-    default: 'allow_adult',
+    default: 'dont_allow',
     options: [
       {
         value: 'allow_adult',

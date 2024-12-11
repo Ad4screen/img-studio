@@ -67,7 +67,7 @@ export const EditImageFormFields = {
   sampleCount: {
     label: 'Quantity of outputs',
     type: 'chip-group',
-    default: '4',
+    default: '2',
     options: ['1', '2', '3', '4'],
     isDataResetable: false,
   },

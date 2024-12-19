@@ -475,6 +475,7 @@ export async function editImage(formData: EditImageFormI, appContext: appContext
       },
       includeRaiReason: true,
       personGeneration: formData['personGeneration'],
+      safetySetting: 'block_only_high',
       storageUri: editGcsURI,
     },
   }

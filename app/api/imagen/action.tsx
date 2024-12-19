@@ -292,6 +292,7 @@ export async function generateImage(
       },
       includeRaiReason: true,
       personGeneration: formData['personGeneration'],
+      safetySetting: 'block_only_high',
       storageUri: generationGcsURI,
     },
   }

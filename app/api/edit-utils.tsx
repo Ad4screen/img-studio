@@ -197,8 +197,12 @@ export const EditImageFormFields = {
   personGeneration: {
     label: 'People generation',
     type: 'select',
-    default: 'allow_adult',
+    default: 'allow_all',
     options: [
+      {
+        value: 'allow_all',
+        label: 'Allow all',
+      },
       {
         value: 'allow_adult',
         label: 'Allow adult only',
